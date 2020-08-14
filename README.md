@@ -12,6 +12,7 @@ Basically:
 1. NodeJS
 2. Yarn
 3. Express
+4. Typescript
 
 ## 🚀 How to Install?
 To install use the command ```yarn``` or ```npm install```
