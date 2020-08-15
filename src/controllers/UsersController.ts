@@ -11,10 +11,18 @@ class UsersController {
     return response.json(users);
   }
 
-  async create(request: Request, response: Response): Promise<Response> {
-    const {email, name, age, password} = request.body;
+  async show(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
 
-    const users = usersRepository.createUser({email, name, age, password});
+    const users = usersRepository.getOneById(id);
+
+    return response.json(users);
+  }
+
+  async create(request: Request, response: Response): Promise<Response> {
+    const { email, name, age, password } = request.body;
+
+    const users = usersRepository.createUser({ email, name, age, password });
 
     return response.json(users);
   }
