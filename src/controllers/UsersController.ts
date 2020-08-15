@@ -27,6 +27,16 @@ class UsersController {
     return response.json(users);
   }
 
+  async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { email, name, age, password } = request.body;
+
+    const users = usersRepository.updateUser({ email, name, age, password, id });
+
+    return response.json(users);
+  }
+
+
   async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 

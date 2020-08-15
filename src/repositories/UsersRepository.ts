@@ -31,6 +31,16 @@ class UsersRepository {
     return user;
   }
 
+  public updateUser({ email, age, name, password, id }: User) {
+    const findUser = this.users.findIndex((user) => user.id === id);
+
+    const updatedUser = new User({ email, age, name, password });
+
+    this.users[findUser] = updatedUser;
+
+    return updatedUser;
+  }
+
   public deleteUser(id: string): string {
     const findUser = this.users.findIndex((user) => user.id === id);
 
