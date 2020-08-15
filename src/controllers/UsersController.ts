@@ -10,6 +10,14 @@ class UsersController {
 
     return response.json(users);
   }
+
+  async create(request: Request, response: Response): Promise<Response> {
+    const {email, name, age, password} = request.body;
+
+    const users = usersRepository.createUser({email, name, age, password});
+
+    return response.json(users);
+  }
 }
 
 export default UsersController;
