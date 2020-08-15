@@ -30,6 +30,14 @@ class UsersRepository {
 
     return user;
   }
+
+  public deleteUser(id: string): string {
+    const findUser = this.users.findIndex((user) => user.id === id);
+
+    this.users.splice(findUser, 1);
+
+    return 'deleted';
+  }
 }
 
 export default UsersRepository;

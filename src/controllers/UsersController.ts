@@ -26,6 +26,14 @@ class UsersController {
 
     return response.json(users);
   }
+
+  async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const users = usersRepository.getOneById(id);
+
+    return response.json(users);
+  }
 }
 
 export default UsersController;
